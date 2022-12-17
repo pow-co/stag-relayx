@@ -1,6 +1,6 @@
 {
   "name": "stag-relayx",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Wrapper around relayx javascript library providing support for stag wallet high level transaction types and onchain actions.",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
@@ -21,8 +21,10 @@
     "axios": "^1.2.0",
     "boostpow": "^1.8.1",
     "bsv": "^1.5.6",
+    "bsv-2": "npm:bsv@^2.0.10",
     "core-js": "^3.26.1",
     "pbkdf2-compat": "^4.0.0",
+    "uuid": "^9.0.0",
     "webpack": "^5.75.0"
   },
   "devDependencies": {
@@ -31,6 +33,7 @@
     "@testing-library/react": "^13.4.0",
     "@types/chai": "^4.3.4",
     "@types/jest": "^29.2.3",
+    "@types/uuid": "^9.0.0",
     "@typescript-eslint/eslint-plugin": "^5.44.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
