@@ -100,11 +100,7 @@ const onchain = (relayone: any) => {
 
       console.log('SEARCH URL', url)
 
-      const { data } = await axios.post(url, {
-        content: {
-            url: 'https://github.com/pow-co/powco.dev/issues/11'
-        }
-      })
+      const { data } = await axios.post(url, params)
 
       const [event] = data.events
 

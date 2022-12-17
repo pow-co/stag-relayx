@@ -1,6 +1,6 @@
 {
   "name": "stag-relayx",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Wrapper around relayx javascript library providing support for stag wallet high level transaction types and onchain actions.",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
