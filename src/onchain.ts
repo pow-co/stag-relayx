@@ -94,9 +94,9 @@ const onchain = (relayone: any) => {
 
       const query = new URLSearchParams(where).toString()
 
-      //const url = `https://onchain.sv/api/v1/search/events`
+      const url = `https://onchain.sv/api/v1/search/events`
 
-      const url = `http://localhost:5200/api/v1/search/events`
+      //const url = `http://localhost:5200/api/v1/search/events`
 
       console.log('SEARCH URL', url)
 
