@@ -81,7 +81,7 @@ export class Actor {
           ]
       }
 
-      console.log("SEND", send)
+      console.log("relayone.send", send)
 
       return this.relayone.send(send)
 
