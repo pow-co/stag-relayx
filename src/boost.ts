@@ -61,9 +61,15 @@ export default function (relayone: any) {
 
     async function buy(buyBoost: BuyBoost, options: BuyBoostOptions={outputs: []}): Promise<BuyBoostResult> {
 
-        const { content, difficulty, value } = buyBoost
+        const { content, difficulty, value, tag } = buyBoost
 
-        const { data } = await axios.get(`https://pow.co/api/v1/boostpow/${content}/new?difficulty=${difficulty}`)
+        var url = `https://pow.co/api/v1/boostpow/${content}/new?difficulty=${difficulty}`
+
+        if (tag) {
+            url = `${url}&tag=${tag}`
+        }
+
+        const { data } = await axios.get(url)
 
         const paymentRequest: PaymentRequest = data
 
