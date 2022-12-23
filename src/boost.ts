@@ -8,7 +8,6 @@ import { Script } from '@runonbitcoin/nimble'
 export interface BuyBoost {
     content: string;
     difficulty: number;
-    currency: string;
     value: number;
     tag?: Buffer;
     category?: Buffer;
