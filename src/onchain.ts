@@ -179,17 +179,19 @@ const onchain = (relayone: any) => {
 
       console.log('relayone.send.result', result)
 
-      axios.get(`https://onchain.sv/api/v1/events/${result.txid}`)
-        .then((result: any) => {
+      try {
 
-            console.log('published to onchain.sv', result)
+        await axios.get(`https://onchain.sv/api/v1/events/${result.txid}`)
 
-        })
-        .catch((error: any) => {
+        console.log('published to onchain.sv', result)
 
-            console.error('failed to publish to onchain.sv', error)
+      } catch(error) {
 
-        })
+        console.error('failed to publish to onchain.sv', error)
+
+        return { result }
+
+      }
 
       return {
         result
