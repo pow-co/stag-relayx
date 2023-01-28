@@ -5,6 +5,8 @@ import { PaymentRequest } from './anypay'
 
 import { Script } from '@runonbitcoin/nimble'
 
+const apiBase = `https://pow.co`
+
 export interface BuyBoost {
     content: string;
     difficulty: number;
@@ -62,7 +64,7 @@ export default function (relayone: any) {
 
         const { content, difficulty, value, tag } = buyBoost
 
-        var url = `https://pow.co/api/v1/boostpow/${content}/new?difficulty=${difficulty}`
+        var url = `${apiBase}/api/v1/boostpow/${content}/new?difficulty=${difficulty}`
 
         if (tag) {
             url = `${url}&tag=${tag}`
@@ -96,7 +98,13 @@ export default function (relayone: any) {
             outputs: options.outputs
         });
 
-        const { data: { job }} = await axios.get(`https://pow.co/api/v1/boost/jobs/${sendResult.txid}`)
+        const { data: powcoJobsSubmitResultData } = await axios.post(`${apiBase}/api/v1/boost/jobs`, {
+            transaction: sendResult.rawTx
+        })
+
+        console.log('stag.powco.jobs.submit.result.data', powcoJobsSubmitResultData)
+
+        const [job] = powcoJobsSubmitResultData.jobs
 
         const result = {
             txid: sendResult.txid,
@@ -112,7 +120,7 @@ export default function (relayone: any) {
 
     async function fetch({ txid }: { txid: string}): Promise<BoostpowJob> {
 
-        const { data: { job }} = await axios.get(`https://pow.co/api/v1/boost/jobs/${txid}`)
+        const { data: { job }} = await axios.get(`${apiBase}/api/v1/boost/jobs/${txid}`)
 
         return job
 
